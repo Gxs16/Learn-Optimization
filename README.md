@@ -9,3 +9,7 @@ Records on learning optimization.
 ## Bin Packing
 
 1. [Bin Packing on Optimization Solver](https://github.com/Gxs16/Learn-Optimization/tree/master/Bin%20Packing/Bin%20Packing%20on%20Optimization%20Solver)
+
+## Dynamic Programming
+
+1. [Dynamic Programming on Leetcode](https://github.com/Gxs16/Learn-Optimization/tree/master/Dynamic%20Programming/Dynamic%20Programming%20on%20Leetcode)
