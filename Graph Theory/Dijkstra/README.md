@@ -17,3 +17,7 @@
 * Reference: <https://b23.tv/svgoUs>
 * Language: Python
 * Description: Return the result after we have searched the destination.
+
+## Eager Dijkstra's Algorithm (Uncompleted)
+
+* Description: Indexed priority queue.
