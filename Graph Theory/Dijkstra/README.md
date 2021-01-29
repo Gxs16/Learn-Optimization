@@ -1,4 +1,4 @@
-# Algorithm on Graph
+# Dijkstra's Algorithm
 
 ## Simple Dijkstra's Algorithm
 
@@ -11,3 +11,9 @@
 * Reference: <https://b23.tv/svgoUs>
 * Language: Python
 * Description: Greedy; Choose the most promising target in the priority queue.
+
+## Stop Early
+
+* Reference: <https://b23.tv/svgoUs>
+* Language: Python
+* Description: Return the result after we have searched the destination.
