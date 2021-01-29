@@ -6,42 +6,7 @@
 #%%
 import networkx as nx
 import numpy as np
-
-class PriorityQueue():
-    def __init__(self, sense: str):
-        self.data = []
-        self.sense = sense
-    
-    def push(self, data: tuple):
-        # Binary Search
-        if not self.data:
-            self.data.append(data)
-        else:
-            left = 0
-            right = len(self.data)-1
-            while left <= right:
-                mid = left+(right-left)//2
-                if self.data[mid][1] == data[1]:
-                    self.data.insert(mid, data)
-                    break
-                elif self.data[mid][1] < data[1]:
-                    left = mid+1
-                else:
-                    right = mid-1
-            else:
-                self.data.insert(left, data)
-    
-    def pop(self):
-        if self.sense == 'min':
-            return self.data.pop(0)
-        elif self.sense == 'max':
-            return self.data.pop(-1)
-    
-    def empty(self):
-        return len(self.data) == 0
-    
-    def print_data(self):
-        print(self.data)
+from util import PriorityQueue
 
 def Dijkstra(Graph, start, end):
     '''
