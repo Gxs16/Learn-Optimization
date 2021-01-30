@@ -21,21 +21,21 @@ class PriorityQueue():
             self.data = []
             self.sense = sense
 
-    def push(self, data: tuple):
+    def push(self, data, priority):
         # Binary Search
         left = 0
         right = len(self.data)-1
         while left <= right:
             mid = left+(right-left)//2
-            if self.data[mid][1] == data[1]:
-                self.data.insert(mid, data)
+            if self.data[mid][1] == priority:
+                self.data.insert(mid, (data, priority))
                 break
-            elif self.data[mid][1] < data[1]:
+            elif self.data[mid][1] < priority:
                 left = mid+1
             else:
                 right = mid-1
         else:
-            self.data.insert(left, data)
+            self.data.insert(left, (data, priority))
 
     def pop(self):
         if self.data:

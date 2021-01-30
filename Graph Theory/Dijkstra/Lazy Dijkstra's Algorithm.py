@@ -28,7 +28,7 @@ def Dijkstra(Graph, start, end):
             Graph.nodes[node]['min_dis'] = np.inf
 
     node_queue = PriorityQueue('min')
-    node_queue.push((start, 0)) # 构造接下来要遍历的优先级队列
+    node_queue.push(start, 0) # 构造接下来要遍历的优先级队列
 
     while not node_queue.empty():
         current_node, _min_distance = node_queue.pop() # 队列中弹出下一个遍历的点
@@ -44,7 +44,7 @@ def Dijkstra(Graph, start, end):
             # 更新起始点到达后继节点的距离
             if _distance < Graph.nodes[successor]['min_dis']:
                 Graph.nodes[successor]['min_dis'] = _distance
-                node_queue.push((successor, _distance)) # 在队列中加入需要后继节点
+                node_queue.push(successor, _distance) # 在队列中加入需要后继节点
                 Graph.nodes[successor]['prev'] = current_node
                 
     min_distance = Graph.nodes[end]['min_dis']
