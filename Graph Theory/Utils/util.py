@@ -6,13 +6,13 @@
 #%%
 class PriorityQueue():
     '''
-    PriorityQueue by myself.
-    param:
+    PriorityQueue by myself.\n
+    param:\n
     sense: \'max\' or \'min\'
     '''
     def __init__(self, sense: str):
         '''
-        param:
+        param:\n
         sense: \'max\' or \'min\'
         '''
         if not sense in ['min', 'max']:
@@ -32,9 +32,9 @@ class PriorityQueue():
 
     def push(self, element, priority):
         '''
-        param:
-        element: the element needed to insert
-        priority: the priority to the element
+        param:\n
+        element: the element needed to insert.\n
+        priority: the priority to the element.
         '''
         # Binary Search
         left = 0
@@ -54,6 +54,10 @@ class PriorityQueue():
     def pop(self):
         '''
         Return the top priority.
+
+        return:\n
+        element:\n
+        priority:
         '''
         if self.data:
             if self.sense == 'min':
