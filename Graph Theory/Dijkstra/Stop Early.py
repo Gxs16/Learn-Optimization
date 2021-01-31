@@ -4,9 +4,13 @@
 @File: Lazy Dijkstra's Algorithm.py
 '''
 #%%
+import sys
+import os
+sys.path.append('Graph Theory')
+
 import networkx as nx
 import numpy as np
-from util import PriorityQueue
+from Utils.util import PriorityQueue
 
 def Dijkstra(Graph, start, end):
     '''

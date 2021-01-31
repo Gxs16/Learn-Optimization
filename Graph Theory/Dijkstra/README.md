@@ -8,13 +8,13 @@
 
 ## Lazy Dijkstra's Algorithm
 
-* Reference: <https://b23.tv/svgoUs>
+* Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=8>
 * Language: Python
 * Description: Greedy; Choose the most promising target in the priority queue.
 
 ## Stop Early
 
-* Reference: <https://b23.tv/svgoUs>
+* Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=8>
 * Language: Python
 * Description: Return the result after we have searched the destination.
 
