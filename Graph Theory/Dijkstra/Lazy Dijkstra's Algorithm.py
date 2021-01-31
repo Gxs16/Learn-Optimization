@@ -14,7 +14,7 @@ def Dijkstra(Graph, start, end):
     Graph: nx.Digraph()
     start: node which the path starts from
     end: node which the path ends in
-    
+
     return:
     min_distance
     '''
