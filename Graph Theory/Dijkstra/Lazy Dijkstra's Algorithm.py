@@ -9,6 +9,7 @@ import os
 sys.path.append('Graph Theory')
 
 import networkx as nx
+import numpy as np
 from Utils.util import PriorityQueue
 
 def Dijkstra(Graph, start, end):
