@@ -6,10 +6,9 @@
 
 import networkx as nx
 
-
-
-def find_augment_path(graph, start, path, visited):
+def find_augment_path(graph):
     '''
+    DFS
     param:\n
     start: start node (source node)\n
     path: the edges from source to sink.\n
@@ -18,20 +17,20 @@ def find_augment_path(graph, start, path, visited):
     path: the edges from source to sink.\n
     visited: the nodes which have been visited.\n
     '''
-    for node in graph[start]:
-        if not node in visited and graph[start][node]['capacity']-graph[start][node]['cur_flow'] > 0:
-            visited.append(node)
-            path.append((start, node))
-            if node == 't':
-                return visited, path
-            else:
-                _visited, _path = find_augment_path(graph, node, path, visited)
-                if 't' in _visited:
-                    return _visited, _path
-                else:
-                    path.pop()
+    stack = ['s']
+    visited = []
+    prev_dict = {}
+    while stack:
+        start = stack.pop()
+        for node in graph[start]:
+            if not node in visited and graph[start][node]['capacity']-graph[start][node]['cur_flow'] > 0:
+                prev_dict[node] = start
+                visited.append(node)
+                if node == 't':
+                    return prev_dict
+                stack.append(node)
     else:
-        return visited, path
+        return {}
 
 def get_max_flow(graph):
     '''
@@ -40,21 +39,23 @@ def get_max_flow(graph):
     return:\n
     graph:\n
     '''
-    visited = ['s']
-    path = []
-    visited, path = find_augment_path(graph, 's', path, visited)
-    while 't' in visited:
+    prev_dict = find_augment_path(graph)
+    bottleneck_list = []
+    while prev_dict:
         augment_value = []
-        for edge in path:
-            augment_value.append(graph.edges[edge]['capacity']-graph.edges[edge]['cur_flow'])
+        node = 't'
+        while node != 's':
+            augment_value.append(graph[prev_dict[node]][node]['capacity']-graph[prev_dict[node]][node]['cur_flow'])
+            node = prev_dict[node]
         bottleneck = min(augment_value)
-        for edge in path:
-            graph[edge[0]][edge[1]]['cur_flow'] += bottleneck
-            graph[edge[1]][edge[0]]['cur_flow'] -= bottleneck
-        visited = ['s']
-        path = []
-        visited, path = find_augment_path(graph, 's', path, visited)
-    return graph
+        bottleneck_list.append(bottleneck)
+        node = 't'
+        while node != 's':
+            graph[prev_dict[node]][node]['cur_flow'] += bottleneck
+            graph[node][prev_dict[node]]['cur_flow'] -= bottleneck
+            node = prev_dict[node]
+        prev_dict = find_augment_path(graph)
+    return graph, bottleneck_list
 
 if __name__ == '__main__':
     graph = nx.DiGraph()
@@ -82,8 +83,5 @@ if __name__ == '__main__':
             ]
 
     graph.add_weighted_edges_from(edges, weight='capacity', cur_flow=0)
-    graph = get_max_flow(graph)
-    max_flow = 0
-    for node in graph['t']:
-        max_flow -= graph['t'][node]['cur_flow']
+    graph, max_flow = get_max_flow(graph)
     print(max_flow)
