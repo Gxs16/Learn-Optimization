@@ -8,14 +8,11 @@ import networkx as nx
 
 def find_augment_path(graph):
     '''
-    DFS
+    DFS\n
     param:\n
-    start: start node (source node)\n
-    path: the edges from source to sink.\n
-    visited: the nodes which have been visited.\n
+    graph:\n
     return:\n
-    path: the edges from source to sink.\n
-    visited: the nodes which have been visited.\n
+    prev_dict\n
     '''
     stack = ['s']
     visited = []
