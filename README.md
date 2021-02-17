@@ -19,3 +19,7 @@ Records on learning optimization.
 1. [Dijkstra](https://github.com/Gxs16/Learn-Optimization/tree/master/Graph%20Theory/Dijkstra)
 2. [Prim's MST Algorithm](https://github.com/Gxs16/Learn-Optimization/tree/master/Graph%20Theory/Prim's%20Minimum%20Spanning%20Tree)
 3. [Netwok Flow](https://github.com/Gxs16/Learn-Optimization/tree/master/Graph%20Theory/Network%20Flow)
+
+## Artificial Neural Network
+
+1. [DIY ANN](https://github.com/Gxs16/Learn-Optimization/tree/master/Artificial%20Neural%20Network)
