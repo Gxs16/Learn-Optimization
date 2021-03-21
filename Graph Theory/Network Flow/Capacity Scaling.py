@@ -1,7 +1,7 @@
 '''
 @Author: Xinsheng Guo
 @Time: 2021年2月10日20:35:22
-@File: Edmonds Karp Algorithm.py
+@File: Capacity Scaling.py
 '''
 
 import networkx as nx
@@ -26,8 +26,7 @@ def find_augment_path(graph, delta):
                 if node == 't':
                     return prev_dict
                 queue.append(node)
-    else:
-        return {}
+    return {}
 
 def get_max_flow(graph):
     '''
@@ -36,28 +35,31 @@ def get_max_flow(graph):
     return:\n
     graph:\n
     '''
-    for edge in graph.edges():
-        
-    prev_dict = find_augment_path(graph, delta)
+    max_capacity = 0
+    delta = 10
     bottleneck_list = []
-    while prev_dict:
-        augment_value = []
-        node = 't'
-        while node != 's':
-            augment_value.append(graph[prev_dict[node]][node]['capacity']-graph[prev_dict[node]][node]['cur_flow'])
-            node = prev_dict[node]
-        bottleneck = min(augment_value)
-        bottleneck_list.append(bottleneck)
-        node = 't'
-        while node != 's':
-            graph[prev_dict[node]][node]['cur_flow'] += bottleneck
-            graph[node][prev_dict[node]]['cur_flow'] -= bottleneck
-            node = prev_dict[node]
+    while delta >= 1:
         prev_dict = find_augment_path(graph, delta)
+        
+        while prev_dict:
+            augment_value = []
+            node = 't'
+            while node != 's':
+                augment_value.append(graph[prev_dict[node]][node]['capacity']-graph[prev_dict[node]][node]['cur_flow'])
+                node = prev_dict[node]
+            bottleneck = min(augment_value)
+            bottleneck_list.append(bottleneck)
+            node = 't'
+            while node != 's':
+                graph[prev_dict[node]][node]['cur_flow'] += bottleneck
+                graph[node][prev_dict[node]]['cur_flow'] -= bottleneck
+                node = prev_dict[node]
+            prev_dict = find_augment_path(graph, delta)
+        delta = delta / 2
     return graph, bottleneck_list
 
 if __name__ == '__main__':
-    graph = nx.DiGraph()
+    digraph = nx.DiGraph()
 
     edges = [('s', '0', 10), ('s', '1', 5), ('s', '2', 10),
             ('0', 's', 0), ('1', 's', 0), ('2', 's', 0),
@@ -81,6 +83,6 @@ if __name__ == '__main__':
             ('4', '7', 0), ('5', '7', 0),
             ]
 
-    graph.add_weighted_edges_from(edges, weight='capacity', cur_flow=0)
-    graph, max_flow = get_max_flow(graph)
+    digraph.add_weighted_edges_from(edges, weight='capacity', cur_flow=0)
+    digraph, max_flow = get_max_flow(digraph)
     print(max_flow)
