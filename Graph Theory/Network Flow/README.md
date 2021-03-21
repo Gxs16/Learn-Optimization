@@ -14,8 +14,14 @@
 * Language: Python
 * Description: Breath First Search.
 
-## Capacity Scaling (Uncomplete)
+## Capacity Scaling
 
-* Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=30>
+* Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=32>
 * Language: Python
 * Description: The bottleneck value must be larger than a threshold we set.
+
+## Dinic's Algorithm.py
+
+* Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=34>
+* Language: Python
+* Description: Construct a level-graph which can guide the BFS to the sink approximately.
