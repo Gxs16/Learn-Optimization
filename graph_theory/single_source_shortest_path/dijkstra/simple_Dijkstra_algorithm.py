@@ -1,7 +1,7 @@
 '''
 @Author: Xinsheng Guo
 @Time: 2021年1月28日17:06:33
-@File: Simple Dijkstra's Algorithm.py
+@File: simple_Dijkstra_algorithm.py
 '''
 #%%
 import networkx as nx

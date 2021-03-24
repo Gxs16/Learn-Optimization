@@ -1,7 +1,7 @@
 '''
 @Author: Xinsheng Guo
 @Time: 2021年3月21日22:24:25
-@File: Topological Sort.py
+@File: topological_sort.py
 '''
 def depth_first_search(graph, node, visit_set, sort_result):
     if node in graph:

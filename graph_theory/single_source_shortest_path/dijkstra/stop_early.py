@@ -1,7 +1,7 @@
 '''
 @Author: Xinsheng Guo
 @Time: 2021年1月29日16:08:31
-@File: Lazy Dijkstra's Algorithm.py
+@File: stop_early.py
 '''
 #%%
 import sys

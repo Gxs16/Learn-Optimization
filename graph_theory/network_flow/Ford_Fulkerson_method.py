@@ -1,31 +1,31 @@
 '''
 @Author: Xinsheng Guo
-@Time: 2021年2月10日20:35:22
-@File: Edmonds Karp Algorithm.py
+@Time: 2021年2月8日23:25:02
+@File: Ford-Fulkerson_method.py
 '''
 
 import networkx as nx
 
 def find_augment_path(graph):
     '''
-    BFS\n
+    DFS\n
     param:\n
     graph:\n
     return:\n
     prev_dict\n
     '''
-    queue = ['s']
+    stack = ['s']
     visited = []
     prev_dict = {}
-    while queue:
-        start = queue.pop(0)
+    while stack:
+        start = stack.pop()
         for node in graph[start]:
             if not node in visited and graph[start][node]['capacity']-graph[start][node]['cur_flow'] > 0:
                 prev_dict[node] = start
                 visited.append(node)
                 if node == 't':
                     return prev_dict
-                queue.append(node)
+                stack.append(node)
     else:
         return {}
 

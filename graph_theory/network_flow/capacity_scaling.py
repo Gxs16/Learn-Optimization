@@ -1,29 +1,12 @@
 '''
 @Author: Xinsheng Guo
-@Time: 2021年3月21日21:23:07
-@File: Dinic's Algorithm.py
+@Time: 2021年2月10日20:35:22
+@File: capacity_scaling.py
 '''
 
 import networkx as nx
 
-def construct_level_graph(graph):
-    visited = ['s']
-    successor = ['s']
-    while successor:
-        start = successor.pop(0)
-        visited.append(start)
-        for node in graph.successors(start):
-            if not node in visited and graph[start][node]['capacity']-graph[start][node]['cur_flow'] > 0:
-                graph.nodes[node]['level'] = graph.nodes[start]['level']+1
-                successor.append(node)
-                visited.append(node)
-    if 't' in visited:
-        return True
-    else:
-        return False
-
-
-def find_augment_path(graph):
+def find_augment_path(graph, delta):
     '''
     BFS
     param:\n
@@ -37,7 +20,7 @@ def find_augment_path(graph):
     while queue:
         start = queue.pop(0)
         for node in graph[start]:
-            if not node in visited and graph[start][node]['capacity']-graph[start][node]['cur_flow'] > 0 and graph.nodes[node]['level'] > graph.nodes[start]['level']:
+            if not node in visited and graph[start][node]['capacity']-graph[start][node]['cur_flow'] >= delta:
                 prev_dict[node] = start
                 visited.append(node)
                 if node == 't':
@@ -52,22 +35,27 @@ def get_max_flow(graph):
     return:\n
     graph:\n
     '''
-    
+    max_capacity = 0
+    delta = 10
     bottleneck_list = []
-    while construct_level_graph(graph):
-        prev_dict = find_augment_path(graph)
-        augment_value = []
-        node = 't'
-        while node != 's':
-            augment_value.append(graph[prev_dict[node]][node]['capacity']-graph[prev_dict[node]][node]['cur_flow'])
-            node = prev_dict[node]
-        bottleneck = min(augment_value)
-        bottleneck_list.append(bottleneck)
-        node = 't'
-        while node != 's':
-            graph[prev_dict[node]][node]['cur_flow'] += bottleneck
-            graph[node][prev_dict[node]]['cur_flow'] -= bottleneck
-            node = prev_dict[node]
+    while delta >= 1:
+        prev_dict = find_augment_path(graph, delta)
+        
+        while prev_dict:
+            augment_value = []
+            node = 't'
+            while node != 's':
+                augment_value.append(graph[prev_dict[node]][node]['capacity']-graph[prev_dict[node]][node]['cur_flow'])
+                node = prev_dict[node]
+            bottleneck = min(augment_value)
+            bottleneck_list.append(bottleneck)
+            node = 't'
+            while node != 's':
+                graph[prev_dict[node]][node]['cur_flow'] += bottleneck
+                graph[node][prev_dict[node]]['cur_flow'] -= bottleneck
+                node = prev_dict[node]
+            prev_dict = find_augment_path(graph, delta)
+        delta = delta / 2
     return graph, bottleneck_list
 
 if __name__ == '__main__':
@@ -96,6 +84,5 @@ if __name__ == '__main__':
             ]
 
     digraph.add_weighted_edges_from(edges, weight='capacity', cur_flow=0)
-    digraph.nodes['s']['level'] = 0
     digraph, max_flow = get_max_flow(digraph)
     print(max_flow)

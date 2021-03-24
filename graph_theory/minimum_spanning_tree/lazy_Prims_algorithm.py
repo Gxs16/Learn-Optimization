@@ -1,7 +1,7 @@
 '''
 @Author: Xinsheng Guo
 @Time: 2021年1月31日18:21:54
-@File: Lazy Prim's Algorithm.py
+@File: lazy_Prims_algorithm.py
 '''
 import sys
 import os
