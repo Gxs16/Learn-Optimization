@@ -5,12 +5,11 @@
 '''
 #%%
 import sys
-import os
-sys.path.append('Graph Theory')
+sys.path.append('graph_theory')
 
 import networkx as nx
 import numpy as np
-from Utils.util import PriorityQueue
+from utils.priority_queue import PriorityQueue
 
 def Dijkstra(Graph, start, end):
     '''
@@ -50,7 +49,7 @@ def Dijkstra(Graph, start, end):
                 Graph.nodes[successor]['min_dis'] = _distance
                 node_queue.push(successor, _distance) # 在队列中加入需要后继节点
                 Graph.nodes[successor]['prev'] = current_node
-                
+
     min_distance = Graph.nodes[end]['min_dis']
     path = []
     prev_node = end
@@ -63,13 +62,14 @@ def Dijkstra(Graph, start, end):
 if __name__ == '__main__':
     Nodes = ['s', 'a', 'b', 'c', 't']
 
-    arcs = {('s', 'a'):1, ('s', 'c'):100, ('a', 'c'):100, ('b','a'):1, ('c','b'):1, ('a','t'):100, ('c','t'):1}
+    arcs = {('s', 'a'):1, ('s', 'c'):100, ('a', 'c'):100,
+            ('b','a'):1, ('c','b'):1, ('a','t'):100, ('c','t'):1}
     Graph = nx.Graph()
 
-    for node in Nodes:
-        Graph.add_node(node, min_dis=0, prev=None)
+    for _node in Nodes:
+        Graph.add_node(_node, min_dis=0, prev=None)
 
-    for key in arcs.keys():
+    for key in arcs:
         Graph.add_edge(key[0], key[1], length = arcs[key])
 
     print(Dijkstra(Graph, 's', 't'))

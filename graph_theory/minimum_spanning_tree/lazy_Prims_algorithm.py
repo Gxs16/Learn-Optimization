@@ -4,11 +4,10 @@
 @File: lazy_Prims_algorithm.py
 '''
 import sys
-import os
-sys.path.append('Graph Theory')
+sys.path.append('graph_theory')
 
 import networkx as nx
-from Utils.util import PriorityQueue
+from util.priority_queue import PriorityQueue
 
 def add_edges(graph, node, queue, node_visited):
     '''

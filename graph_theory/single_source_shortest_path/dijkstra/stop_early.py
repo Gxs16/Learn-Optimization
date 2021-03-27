@@ -5,12 +5,11 @@
 '''
 #%%
 import sys
-import os
-sys.path.append('Graph Theory')
+sys.path.append('graph_theory')
 
 import networkx as nx
 import numpy as np
-from Utils.util import PriorityQueue
+from utils.priority_queue import PriorityQueue
 
 def Dijkstra(Graph, start, end):
     '''

@@ -12,8 +12,8 @@ Nodes = ['s', 'a', 'b', 'c', 't']
 Arcs = {('s', 'a'):1, ('s', 'c'):100, ('a', 'c'):100, ('b','a'):1, ('c','b'):1, ('a','t'):100, ('c','t'):1}
 Graph = nx.Graph()
 
-for node in Nodes:
-    Graph.add_node(node, min_dis=0)
+for _node in Nodes:
+    Graph.add_node(_node, min_dis=0)
 
 for key in Arcs.keys():
     Graph.add_edge(key[0], key[1], length = Arcs[key])
@@ -44,7 +44,7 @@ def Dijkstra(Graph, start, end):
         for successor in Graph.neighbors(current_node):
             arc = (current_node, successor)
 
-            _distance = Graph.nodes[current_node]['min_dis'] \
+            _distance = Graph.nodes[current_node]['min_dis']\
                         + Graph.edges[arc]['length'] # 计算起始点通过当前点到达后继节点的距离
 
             # 更新起始点到达后继节点的距离

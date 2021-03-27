@@ -1,7 +1,7 @@
 '''
 @Author: Xinsheng Guo
 @Time: 2021年1月29日17:27:39
-@File: util.py
+@File: priority_queue.py
 '''
 #%%
 class PriorityQueue():
