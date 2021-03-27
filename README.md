@@ -19,6 +19,7 @@ Records on learning optimization.
 1. [Single Source Shortest Path](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/single_source_shortest_path)
 2. [Prim's MST Algorithm](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/minimum_spanning_tree)
 3. [Netwok Flow](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/network_flow)
+4. [Topological sort](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/topological_sort)
 
 ## Artificial Neural Network
 
