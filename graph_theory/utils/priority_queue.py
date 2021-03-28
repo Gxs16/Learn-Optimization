@@ -3,6 +3,9 @@
 @Time: 2021年1月29日17:27:39
 @File: priority_queue.py
 '''
+from utils.heap import MaxHeap, MinHeap
+
+from collections import defaultdict
 #%%
 class PriorityQueue():
     '''
@@ -15,20 +18,13 @@ class PriorityQueue():
         param:\n
         sense: \'max\' or \'min\'
         '''
-        if not sense in ['min', 'max']:
+        self.map_dict = defaultdict(list)
+        if sense == 'max':
+            self.heap = MaxHeap()
+        elif sense == 'min':
+            self.heap = MinHeap()
+        else:
             raise Exception('Parameter sense should be \'min\' or \'max\'!')
-        else:
-            self.data = []
-            self.sense = sense
-
-    def __contains__(self, key: int):
-        if self.data:
-            return self.data[key]
-        else:
-            raise Exception('Priority queue is empty!')
-
-    def __str__(self):
-        return str(self.data)
 
     def push(self, element, priority):
         '''
@@ -36,20 +32,8 @@ class PriorityQueue():
         element: the element needed to insert.\n
         priority: the priority to the element.
         '''
-        # Binary Search
-        left = 0
-        right = len(self.data)-1
-        while left <= right:
-            mid = left+(right-left)//2
-            if self.data[mid][1] == priority:
-                self.data.insert(mid, (element, priority))
-                break
-            elif self.data[mid][1] < priority:
-                left = mid+1
-            else:
-                right = mid-1
-        else:
-            self.data.insert(left, (element, priority))
+        self.map_dict[priority].append(element)
+        self.heap.insert(priority)
 
     def pop(self):
         '''
@@ -59,16 +43,12 @@ class PriorityQueue():
         element:\n
         priority:
         '''
-        if self.data:
-            if self.sense == 'min':
-                return self.data.pop(0)
-            elif self.sense == 'max':
-                return self.data.pop(-1)
-        else:
-            raise Exception('pop on a empty priority queue!')
+        priority = self.heap.peek()
+        self.heap.poll()
+        return self.map_dict[priority].pop(), priority
 
     def empty(self):
         '''
         Assert the queue is empty or not.
         '''
-        return len(self.data) == 0
+        return self.heap.empty()
