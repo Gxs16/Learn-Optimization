@@ -1,28 +1,26 @@
 # Learn Optimization
 
-Records on learning optimization.
+## [Assignment](./assignment/)
 
-## Assignment
+1. [Assignment on Optimization Solver](./assignment/assignment_on_solver)
 
-1. [Assignment on Optimization Solver](https://github.com/Gxs16/Learn-Optimization/tree/master/assignment/assignment_on_solver)
+## [Bin Packing](./bin_packing)
 
-## Bin Packing
+1. [Bin Packing on Optimization Solver](./bin_packing/bin_packing_on_solver)
 
-1. [Bin Packing on Optimization Solver](https://github.com/Gxs16/Learn-Optimization/tree/master/bin_packing/bin_packing_on_solver)
+## [Dynamic Programming](./dynamic_programming)
 
-## Dynamic Programming
+1. [Dynamic Programming on Leetcode](./dynamic_programming/dynamic_programming_leetcode)
 
-1. [Dynamic Programming on Leetcode](https://github.com/Gxs16/Learn-Optimization/tree/master/dynamic_programming/dynamic_programming_leetcode)
+## [Graph Theory](./graph_theory)
 
-## Graph Theory
-
-1. [Shortest Path](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/shortest_path)
-   1. [Single Source Shortest Path](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/shortest_path/single_source_shortest_path)
+1. [Shortest Path](./graph_theory/shortest_path)
+   1. [Single Source Shortest Path](./graph_theory/shortest_path/single_source_shortest_path)
    2. [All Pairs Shortest Path](./graph_theory/shortest_path/all_pairs_shortest_path)
-2. [Prim's MST Algorithm](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/minimum_spanning_tree)
-3. [Netwok Flow](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/network_flow)
-4. [Topological sort](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/topological_sort)
+2. [Prim's MST Algorithm](./graph_theory/minimum_spanning_tree)
+3. [Netwok Flow](./graph_theory/network_flow)
+4. [Topological sort](./graph_theory/topological_sort)
 
-## Artificial Neural Network
+## [Artificial Neural Network](./artificial_neural_network)
 
-1. [DIY ANN](https://github.com/Gxs16/Learn-Optimization/tree/master/artificial_neural_network)
+1. [DIY ANN](./artificial_neural_network/ANN.py)
