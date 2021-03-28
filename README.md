@@ -16,7 +16,9 @@ Records on learning optimization.
 
 ## Graph Theory
 
-1. [Single Source Shortest Path](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/single_source_shortest_path)
+1. [Shortest Path](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/shortest_path)
+   1. [Single Source Shortest Path](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/shortest_path/single_source_shortest_path)
+   2. [All Pairs Shortest Path](./graph_theory/shortest_path/all_pairs_shortest_path)
 2. [Prim's MST Algorithm](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/minimum_spanning_tree)
 3. [Netwok Flow](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/network_flow)
 4. [Topological sort](https://github.com/Gxs16/Learn-Optimization/tree/master/graph_theory/topological_sort)
