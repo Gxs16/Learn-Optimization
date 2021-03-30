@@ -1,6 +1,6 @@
 # Network Flow
 
-![Example](https://github.com/Gxs16/Learn-Optimization/blob/master/Graph%20Theory/Network%20Flow/maxflow.png)
+![Example](./maxflow.png)
 
 ## [Ford-Fulkerson Method](./Ford_Fulkerson_method.py)
 

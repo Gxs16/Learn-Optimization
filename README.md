@@ -20,6 +20,7 @@
 2. [Prim's MST Algorithm](./graph_theory/minimum_spanning_tree)
 3. [Netwok Flow](./graph_theory/network_flow)
 4. [Topological sort](./graph_theory/topological_sort)
+5. [Bridges and Articulation Points](./graph_theory/bridges_and_articulation_points)
 
 ## [Artificial Neural Network](./artificial_neural_network)
 
