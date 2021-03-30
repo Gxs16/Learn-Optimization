@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年1月29日16:08:31
 @File: lazy_Dijkstra_algorithm.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=8>
+@Description: Greedy; Choose the most promising target in the priority queue. O((E+V)log(V))
 '''
 #%%
 import sys

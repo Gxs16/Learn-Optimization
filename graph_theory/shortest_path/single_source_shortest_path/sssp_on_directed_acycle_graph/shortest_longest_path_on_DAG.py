@@ -2,6 +2,7 @@
 @Author: Xinsheng Guo
 @Time: 2021年3月27日22:45:20
 @File: shortest_longest_path_on_DAG.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=7>
 @Desc: While finding longest path, multiply all 'distance' by -1
 '''
 import numpy as np

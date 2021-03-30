@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年1月31日18:21:54
 @File: lazy_Prims_algorithm.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=22>
+@Description: Greedy; Choose the most promising target in the priority queue.
 '''
 import sys
 sys.path.append('graph_theory')

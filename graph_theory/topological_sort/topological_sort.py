@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年3月21日22:24:25
 @File: topological_sort.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=6>
+@Description: Depth First Search
 '''
 def depth_first_search(graph, node, visit_set, sort_result):
     if node in graph:

@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年3月27日23:46:35
 @File: BF_algorithm.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=10>
+@Description: Detect the cycle with negative edge weights.
 '''
 import numpy as np
 import networkx as nx

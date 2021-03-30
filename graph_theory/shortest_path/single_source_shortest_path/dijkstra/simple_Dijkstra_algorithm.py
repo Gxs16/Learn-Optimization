@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年1月28日17:06:33
 @File: simple_Dijkstra_algorithm.py
+@Reference: <https://mp.weixin.qq.com/s/0scIC2fops4dKdejp6rRDA>
+@Description: Dijkstra's algorithm for digraph or graph, return the minimum distance. O(EV)
 '''
 #%%
 import networkx as nx

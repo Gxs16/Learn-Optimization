@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年2月8日23:25:02
 @File: Ford-Fulkerson_method.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=25>
+@Description: Depth First Search
 '''
 
 import networkx as nx

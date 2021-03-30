@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年2月10日20:35:22
 @File: capacity_scaling.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=32>
+@Description: The bottleneck value must be larger than a threshold we set.
 '''
 
 import networkx as nx

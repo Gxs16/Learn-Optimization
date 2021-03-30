@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年3月21日21:23:07
 @File: Dinic_algorithm.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=34>
+@Description: Construct a level-graph which can guide the BFS to the sink approximately.
 '''
 
 import networkx as nx

@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年3月29日22:50:17
 @File: low_link.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=13>
+@Description: Depth First Search.
 '''
 import networkx as nx
 

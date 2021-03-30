@@ -2,6 +2,7 @@
 @Author: Xinsheng Guo
 @Time: 2021年3月28日21:09:14
 @File: Floyd_Warshall.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=11>
 '''
 import numpy as np
 from collections import defaultdict

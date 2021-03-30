@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年1月29日16:08:31
 @File: stop_early.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=8>
+@Description: Return the result after we have searched the destination.
 '''
 #%%
 import sys

@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年3月30日22:24:23
 @File: articulation_points.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=13>
+@Description: Depth First Search.
 '''
 import networkx as nx
 

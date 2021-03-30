@@ -2,6 +2,8 @@
 @Author: Xinsheng Guo
 @Time: 2021年2月10日20:35:22
 @File: Edmonds_Karp_algorithm.py
+@Reference: <https://www.bilibili.com/video/BV11E411o7Fb?p=30>
+@Description: Breath First Search.
 '''
 
 import networkx as nx
