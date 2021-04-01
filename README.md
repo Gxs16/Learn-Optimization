@@ -53,6 +53,9 @@
 2. [Bridges and Articulation Points](./graph_theory/connected_component/bridges_and_articulation_points)
    1. [Low Link](./graph_theory/connected_component/bridges_and_articulation_points/low_link.py)
    2. [Articulate Points](./graph_theory/connected_component/bridges_and_articulation_points/articulation_points.py)
+3. [Strongly Connected Component](./graph_theory/connected_component/strongly_connected_component)
+   1. [Tarjan's Algorithm](./graph_theory/connected_component/strongly_connected_component/Tarjan_algorithm.py)
+      ![scc.png](./graph_theory/connected_component/strongly_connected_component/scc.png)
 
 ## [Artificial Neural Network](./artificial_neural_network)
 
