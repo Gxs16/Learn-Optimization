@@ -10,7 +10,8 @@
 
 ## [Dynamic Programming](./dynamic_programming)
 
-1. [Dynamic Programming on Leetcode](./dynamic_programming/dynamic_programming_leetcode)
+1. [TSP](./graph_theory/traveling_salesman_problem/dynamic_programming/TSP_DP.py)
+2. [Dynamic Programming on Leetcode](./dynamic_programming/dynamic_programming_leetcode)
 
 ## [Graph Theory](./graph_theory)
 
@@ -56,6 +57,10 @@
 3. [Strongly Connected Component](./graph_theory/connected_component/strongly_connected_component)
    1. [Tarjan's Algorithm](./graph_theory/connected_component/strongly_connected_component/Tarjan_algorithm.py)
       ![scc.png](./graph_theory/connected_component/strongly_connected_component/scc.png)
+
+### [Traveling Salesman Problem](./graph_theory/traveling_salesman_problem)
+
+1. [Dynamic Programming](./graph_theory/traveling_salesman_problem/dynamic_programming/TSP_DP.py)
 
 ## [Artificial Neural Network](./artificial_neural_network)
 
