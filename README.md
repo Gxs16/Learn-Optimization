@@ -64,6 +64,13 @@
    1. [Simple Dynamic Programming](./graph_theory/traveling_salesman_problem/dynamic_programming/TSP_dynamic_programming.py)
    2. [Parallel Dynamic Programming](./graph_theory/traveling_salesman_problem/dynamic_programming/TSP_dp_parallel.py)
 
+### [Eulerian Path](./graph_theory/Eulerian_path)
+
+![compare](./graph_theory/Eulerian_path/table.png)
+
+1. [Eulerian Path on Directed Graph](./graph_theory/Eulerian_path/Eulerian_path_digraph.py)
+   ![example](./graph_theory/Eulerian_path/example.png)
+
 ## [Artificial Neural Network](./artificial_neural_network)
 
 1. [DIY ANN](./artificial_neural_network/ANN.py)
