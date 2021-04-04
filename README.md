@@ -60,7 +60,9 @@
 
 ### [Traveling Salesman Problem](./graph_theory/traveling_salesman_problem)
 
-1. [Dynamic Programming](./graph_theory/traveling_salesman_problem/dynamic_programming/TSP_DP.py)
+1. [Dynamic Programming](./graph_theory/traveling_salesman_problem/dynamic_programming/)
+   1. [Simple Dynamic Programming](./graph_theory/traveling_salesman_problem/dynamic_programming/TSP_dynamic_programming.py)
+   2. [Parallel Dynamic Programming](./graph_theory/traveling_salesman_problem/dynamic_programming/TSP_dp_parallel.py)
 
 ## [Artificial Neural Network](./artificial_neural_network)
 
