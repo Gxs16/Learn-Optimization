@@ -1,13 +1,20 @@
+'''
+@Author: Xinsheng Guo
+@Time: 2021年7月13日17:16:32
+@File: ranking.py
+@Reference: <https://github.com/guofei9987/scikit-opt>
+@Description: Basic Genetic Algorithm template
+'''
 import numpy as np
 
-__all__ = ['ranking_normal', 'ranking_linear']
+__all__ = ['normal', 'linear']
 
-def ranking_normal(self):
+def normal(self):
     # GA select the biggest one, but we want to minimize func, so we put a negative here
     self.FitV = -self.Y
 
 
-def ranking_linear(self):
+def linear(self):
     '''
     For more details see [Baker1985]_.
 

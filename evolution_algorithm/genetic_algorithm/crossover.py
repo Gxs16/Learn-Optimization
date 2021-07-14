@@ -1,9 +1,12 @@
 import numpy as np
 
-__all__ = ['crossover_sbx', 'crossover_1point', 'crossover_2point', 'crossover_pmx', 'crossover_2point_prob']
+__all__ = ['sbx', 'one_point', 'two_point', 'two_point_bit', 'two_point_prob', 'pmx']
 
 
-def crossover_sbx(self):
+def sbx(self):
+    '''
+    模拟二进制交叉
+    '''
     Chrom, size_pop, len_chrom, prob_cros= self.Chrom, self.size_pop, len(self.Chrom[0]), self.FitV, self.prob_cros
     for i in range(0, size_pop, 2):
         if np.random.random() <= prob_cros:
@@ -26,7 +29,10 @@ def crossover_sbx(self):
                 Chrom[i + 1][j] = child2
     self.Chrom = Chrom
 
-def crossover_1point(self):
+def one_point(self):
+    '''
+    单点交叉
+    '''
     Chrom, size_pop, len_chrom = self.Chrom, self.size_pop, len(self.Chrom[0])
     for i in range(0, size_pop, 2):
         n = np.random.randint(0, len_chrom)
@@ -36,7 +42,10 @@ def crossover_1point(self):
     self.Chrom = Chrom
 
 
-def crossover_2point(self):
+def two_point(self):
+    '''
+    两点交叉
+    '''
     Chrom, size_pop, len_chrom = self.Chrom, self.size_pop, len(self.Chrom[0])
     for i in range(0, size_pop, 2):
         n1, n2 = np.random.randint(0, len_chrom, 2)
@@ -48,7 +57,7 @@ def crossover_2point(self):
     self.Chrom = Chrom
 
 
-def crossover_2point_bit(self):
+def two_point_bit(self):
     '''
     3 times faster than `crossover_2point`, but only use for 0/1 type of Chrom
     :param self:
@@ -69,7 +78,7 @@ def crossover_2point_bit(self):
     return self.Chrom
 
 
-def crossover_2point_prob(self, crossover_prob):
+def two_point_prob(self, crossover_prob):
     '''
     2 points crossover with probability
     '''
@@ -83,7 +92,7 @@ def crossover_2point_prob(self, crossover_prob):
             Chrom[i, n1:n2], Chrom[i + 1, n1:n2] = seg2, seg1
     self.Chrom = Chrom
 
-def crossover_pmx(self):
+def pmx(self):
     '''
     Executes a partially matched crossover (PMX) on Chrom.
     For more details see [Goldberg1985]_.

@@ -1,8 +1,8 @@
 import numpy as np
 
-__all__ = ['selection_tournament', 'selection_tournament_faster', 'selection_roulette_1', 'selection_roulette_2']
+__all__ = ['tournament', 'tournament_faster', 'roulette_1', 'roulette_2']
 
-def selection_tournament(self, tourn_size=3):
+def tournament(self, tourn_size=3):
     '''
     Select the best individual among *tournsize* randomly chosen
     individuals,
@@ -18,7 +18,7 @@ def selection_tournament(self, tourn_size=3):
         sel_index.append(max(aspirants_index, key=lambda i: FitV[i]))
     self.Chrom = self.Chrom[sel_index, :]  # next generation
 
-def selection_tournament_faster(self, tourn_size=3):
+def tournament_faster(self, tourn_size=3):
     '''
     Select the best individual among *tournsize* randomly chosen
     Same with `selection_tournament` but much faster using numpy
@@ -33,7 +33,7 @@ def selection_tournament_faster(self, tourn_size=3):
     sel_index = [aspirants_idx[i, j] for i, j in enumerate(winner)]
     self.Chrom = self.Chrom[sel_index, :]
 
-def selection_roulette_1(self):
+def roulette_1(self):
     '''
     Select the next generation using roulette
     :param self:
@@ -46,7 +46,7 @@ def selection_roulette_1(self):
     sel_index = np.random.choice(range(self.size_pop), size=self.size_pop, p=sel_prob)
     self.Chrom = self.Chrom[sel_index, :]
 
-def selection_roulette_2(self):
+def roulette_2(self):
     '''
     Select the next generation using roulette
     :param self:

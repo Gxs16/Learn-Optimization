@@ -74,3 +74,7 @@
 ## [Artificial Neural Network](./artificial_neural_network)
 
 1. [DIY ANN](./artificial_neural_network/ANN.py)
+
+## [Evolution Algorithm](./evolution_algorithm)
+
+1. [Genetic Algorithm](./evolution_algorithm/genetic_algorithm)

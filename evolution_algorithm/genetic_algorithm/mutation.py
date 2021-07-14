@@ -1,8 +1,15 @@
+'''
+@Author: Xinsheng Guo
+@Time: 2021年7月13日17:16:32
+@File: mutation.py
+@Reference: <https://github.com/guofei9987/scikit-opt>
+@Description: Basic Genetic Algorithm template
+'''
 import numpy as np
 
-__all__=['mutation_poly', 'mutation_normal', 'mutation_TSP_1', 'mutation_swap', 'mutation_reverse']
+__all__=['poly', 'normal', 'TSP_1', 'swap', 'reverse']
 
-def mutation_normal(self):
+def normal(self):
     '''
     mutation of 0/1 type chromosome
     faster than `self.Chrom = (mask + self.Chrom) % 2`
@@ -12,7 +19,7 @@ def mutation_normal(self):
     mask = (np.random.rand(self.size_pop, self.len_chrom) < self.prob_mut)
     self.Chrom ^= mask
 
-def mutation_poly(self):
+def poly(self):
     '''
     Routine for real polynomial mutation of an individual
     '''
@@ -35,7 +42,7 @@ def mutation_poly(self):
                 Chrom[i][j] = y
     return Chrom
 
-def mutation_TSP_1(self):
+def TSP_1(self):
     '''
     every gene in every chromosome mutate
     :param self:
@@ -50,7 +57,7 @@ def mutation_TSP_1(self):
     self.Chrom = Chrom
 
 
-def swap(individual):
+def _swap(individual):
     n1, n2 = np.random.randint(0, individual.shape[0] - 1, 2)
     if n1 >= n2:
         n1, n2 = n2, n1 + 1
@@ -58,7 +65,7 @@ def swap(individual):
     return individual
 
 
-def reverse(individual):
+def _reverse(individual):
     '''
     Reverse n1 to n2
     Also called `2-Opt`: removes two random edges, reconnecting them so they cross
@@ -82,7 +89,7 @@ def transpose(individual):
     return individual
 
 
-def mutation_reverse(self):
+def reverse(self):
     '''
     Reverse
     :param self:
@@ -91,13 +98,13 @@ def mutation_reverse(self):
     Chrom = self.Chrom
     for i in range(self.size_pop):
         if np.random.rand() < self.prob_mut:
-            Chrom[i] = reverse(Chrom[i])
+            Chrom[i] = _reverse(Chrom[i])
     self.Chrom = Chrom
 
 
-def mutation_swap(self):
+def swap(self):
     Chrom = self.Chrom
     for i in range(self.size_pop):
         if np.random.rand() < self.prob_mut:
-            Chrom[i] = swap(Chrom[i])
+            Chrom[i] = _swap(Chrom[i])
     self.Chrom = Chrom
