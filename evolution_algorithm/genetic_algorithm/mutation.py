@@ -40,7 +40,7 @@ def poly(self):
                 y = y + deltaq
                 y = min(1, max(y, 0))
                 Chrom[i][j] = y
-    return Chrom
+    self.Chrom = Chrom
 
 def TSP_1(self):
     '''

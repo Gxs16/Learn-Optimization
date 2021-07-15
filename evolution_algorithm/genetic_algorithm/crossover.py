@@ -7,9 +7,9 @@ def sbx(self):
     '''
     模拟二进制交叉
     '''
-    Chrom, size_pop, len_chrom, prob_cros= self.Chrom, self.size_pop, len(self.Chrom[0]), self.FitV, self.prob_cros
+    Chrom, size_pop, len_chrom, prob_cross= self.Chrom, self.size_pop, len(self.Chrom[0]), self.FitV, self.prob_cross
     for i in range(0, size_pop, 2):
-        if np.random.random() <= prob_cros:
+        if np.random.random() <= prob_cross:
             for j in range(len_chrom):
                 y1 = Chrom[i][j]
                 y2 = Chrom[i + 1][j]
