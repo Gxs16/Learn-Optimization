@@ -1,14 +1,56 @@
 """
 @Author: Xinsheng Guo
-@Time: 2022年10月23日
-@File: subtour_elimination.py
+@Time: 2022年10月30日
+@File: subtour_elimination_callback.py
 @Reference: <https://mp.weixin.qq.com/s/iIT8Qu7IL1YXAjXQpQvhug>
 @Dataset: <https://developers.google.cn/optimization/routing/tsp>
 @Description: 整数规划cplex，消除子回路
 """
 import math
-
+import cplex
+from cplex.callbacks import LazyConstraintCallback
 from docplex.mp.model import Model
+
+
+class LazyCallback(LazyConstraintCallback):
+    """Lazy constraint callback to enforce the capacity constraints.
+
+    If used then the callback is invoked for every integer feasible
+    solution CPLEX finds. For each location j it checks whether
+    constraint
+
+    sum(c in C) supply[c][j] <= (|C| - 1) * used[j]
+
+    is satisfied. If not then it adds the violated constraint as lazy
+    constraint.
+    """
+
+    # Callback constructor. Fields 'locations', 'clients', 'used', 'supply'
+    # are set externally after registering the callback.
+    def __init__(self, env):
+        super().__init__(env)
+
+    def __call__(self):
+
+        route = {}
+        for i in self.city_set:
+            for j in self.city_set:
+                if self.get_values(self.x[i, j].index) > 0.5:
+                    route[i] = j
+        # visited = [False] * len(self.city_set)
+        # total = 1
+        start = 0
+        end = route[start]
+        sub_tour = [start]
+        while start != end:
+            sub_tour.append(end)
+            end = route[end]
+
+        K = len(sub_tour)
+        if K < len(self.city_set):
+            self.add(
+                constraint=cplex.SparsePair([self.x[i, j].index for i in sub_tour for j in sub_tour], [1.0] * (K * K)),
+                sense="L", rhs=K - 1)
 
 
 def compute_euclidean_distance_matrix(locations):
@@ -32,6 +74,7 @@ def build_tsp_model(data):
     setup_variables(model)
     setup_constraints(model)
     setup_objects(model)
+    setup_lazy_callback(model, LazyCallback)
     return model
 
 
@@ -43,27 +86,30 @@ def setup_data(model: Model, data):
 def setup_variables(model: Model):
     model.x = model.binary_var_matrix(model.city_set, model.city_set, 'x')
 
-    model.mu = model.continuous_var_list(model.city_set, 0, None, 'mu')
-
 
 def setup_constraints(model: Model):
-    N = len(model.city_set) - 1
-    for i in model.city_set[1:]:
+    for i in model.city_set:
         model.add_constraint(model.sum(model.x[i, j] for j in model.city_set if i != j) == 1,
                              '约束1：每个点都被离开一次')
 
-    for j in model.city_set[: -1]:
+    for j in model.city_set:
         model.add_constraint(model.sum(model.x[i, j] for i in model.city_set if i != j) == 1,
                              '约束2：每个点都被到达一次')
 
-    for i in model.city_set[: -1]:
-        for j in model.city_set[1:]:
-            if i != j:
-                model.add_constraint(model.mu[i] - model.mu[j] + N * model.x[i, j] <= N - 1)
+    # for k in range(2, len(model.city_set)):
+    #     for sub_set in combinations(model.city_set, k):
+    #         model.add_constraint(model.sum(model.x[i, j] for i in sub_set for j in sub_set) <= k - 1,
+    #                              '约束3：消除子回路')
 
 
 def setup_objects(model: Model):
     model.minimize(model.sum(model.data[i][j] * model.x[i, j] for i in model.city_set for j in model.city_set))
+
+
+def setup_lazy_callback(model: Model, callback):
+    cb = model.register_callback(callback)
+    cb.city_set = model.city_set
+    cb.x = model.x
 
 
 def retrieve_route(model: Model):
@@ -89,7 +135,7 @@ def solve(model: Model):
 
     if sol is not None:
         print("Objective: {} miles".format(model.objective_value))
-        # print("Route: {}".format(retrieve_route(model)))
+        print("Route: {}".format(retrieve_route(model)))
     else:
         print("* model is infeasible")
         return None
@@ -128,7 +174,7 @@ def test_1():
 
 def test_2():
     location = [
-        (288, 149), (288, 129), (270, 133), (256, 141), (256, 157), (246, 157), (236, 169), (228, 169), (288, 149)
+        (288, 149), (288, 129), (270, 133), (256, 141), (256, 157), (246, 157), (236, 169), (228, 169)
     ]
 
     test_data = compute_euclidean_distance_matrix(location)
