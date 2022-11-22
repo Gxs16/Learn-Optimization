@@ -73,7 +73,7 @@
 ![compare](./graph_theory/Eulerian_path/table.png)
 
 1. [Eulerian Path on Directed Graph](./graph_theory/Eulerian_path/Eulerian_path_digraph.py)
-   ![example](./graph_theory/Eulerian_path/example.png)
+   ![Example](./graph_theory/Eulerian_path/example.png)
 
 ## [Artificial Neural Network](./artificial_neural_network)
 
@@ -85,7 +85,7 @@
 
 ## [Reinforcement Learning](./reinforcement_learning)
 
-### [Tabular Method]
+### Tabular Method
 
 1. [SARSA](./reinforcement_learning/algorithm/sarsa.py)
 2. [Q Learning](./reinforcement_learning/algorithm/q_learning.py)
