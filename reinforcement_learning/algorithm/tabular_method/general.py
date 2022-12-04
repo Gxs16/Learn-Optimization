@@ -19,7 +19,7 @@ def get_args():
     parser.add_argument('--epsilon_decay', default=300, type=int,
                         help="decay rate of epsilon")  # e-greedy策略中epsilon的衰减率
     parser.add_argument('--lr', default=0.1, type=float, help="learning rate")
-    parser.add_argument('--device', default='cpu', type=str, help="cpu or cuda")
+    parser.add_argument('--device', default='cpu', type=str, help="cpu or gpu")
     args = parser.parse_args([])
     return args
 
@@ -32,9 +32,9 @@ def train(cfg, env, agent):
         ep_reward = 0  # 记录每个回合的奖励
         state = env.reset()  # 重置环境,即开始新的回合
         while True:
-            action = agent.sample_action(state)  # 根据算法采样一个动作
+            action = agent.sample(state)  # 根据算法采样一个动作
             next_state, reward, done, _ = env.step(action)  # 与环境进行一次动作交互
-            agent.update(state, action, reward, next_state, done)  # Q学习算法更新
+            agent.learn(state, action, reward, next_state, done)  # Q学习算法更新
             state = next_state  # 更新状态
             ep_reward += reward
             if done:
@@ -56,7 +56,7 @@ def test(cfg, env, agent, render=False):
         if render:
             env.render()
         while True:
-            action = agent.predict_action(state)  # 根据算法选择一个动作
+            action = agent.predict(state)  # 根据算法选择一个动作
             next_state, reward, done, _ = env.step(action)  # 与环境进行一个交互
             if render:
                 env.render()

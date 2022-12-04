@@ -1,6 +1,7 @@
 import math
 from abc import abstractmethod
 from collections import defaultdict
+import parl
 
 import numpy as np
 
@@ -17,7 +18,7 @@ class TabularMethod:
         self.epsilon_decay = cfg.epsilon_decay
         self.Q_table = defaultdict(lambda: np.zeros(n_actions))  # 用嵌套字典存放状态->动作->状态-动作值（Q值）的映射，即Q表
 
-    def sample_action(self, state):
+    def sample(self, state):
         """
         采样动作，训练时用
         """
@@ -32,7 +33,7 @@ class TabularMethod:
             action = np.random.choice(self.n_actions)  # 随机选择动作
         return action
 
-    def predict_action(self, state):
+    def predict(self, state):
         """
         预测或选择动作，测试时用
         """
@@ -40,5 +41,5 @@ class TabularMethod:
         return action
 
     @abstractmethod
-    def update(self, state, action, reward, next_state, done):
+    def learn(self, state, action, reward, next_state, done):
         pass

@@ -76,5 +76,5 @@
 
 ### Tabular Method
 
-1. [SARSA](./reinforcement_learning/algorithm/sarsa.py)
-2. [Q Learning](./reinforcement_learning/algorithm/q_learning.py)
+1. [SARSA](reinforcement_learning/algorithm/tabular_method/sarsa.py)
+2. [Q Learning](reinforcement_learning/algorithm/tabular_method/q_learning.py)

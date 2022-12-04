@@ -25,8 +25,8 @@ def plot_rewards(rewards, cfg):
     sns.set()
     plt.figure()  # 创建一个图形实例，方便同时多画几个图
     plt.title("learning curve on {} of {} for {}".format(
-        cfg.device, cfg.algo_name, cfg.env_name))
-    plt.xlabel('epsiodes')
+        cfg['device'], cfg['algo_name'], cfg['env_name']))
+    plt.xlabel('episodes')
     plt.plot(rewards, label='rewards')
     plt.plot(smooth(rewards), label='smoothed')
     plt.legend()
